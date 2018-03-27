@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"  href="css/task4.css">
+    <style type="text/css">
+
+     /*消除全局的默认设置*/
+    * {
+		  margin: 0;
+		  padding: 0;
+    }
+   
+   /*层级contaier的样式*/
+    .contaier{
+      /*position: absolute;*/
+      width: 892px;
+      background: white;
+      margin: 0 auto;
+    }
+    body {
+      /*padding: 0 20px;*/
+      border-bottom: 2px solid #938e8c;
+      width: 980px;
+      height: 1386px;
+      margin:0px auto;
+      border: 1px solid #c0c0c0;
+      box-shadow: 3px 3px 5px #eee;
+    }
+    .top__logo {
+      width: 110px;
+      height:61px;
+      float: left;
+      background: #D55D5C;
+    }
+    .top__logo p {
+      font-size: 12px;
+      color: white;
+      font-family:黑体;
+      text-align: center;
+      margin-top:45px;
+    }
+    .clearflow{
+      overflow: hidden;
+    }
+    .top__time{
+      float: right;
+      color: #d45d5c;
+      font-size: 12px;
+      font-family:黑体;
+      margin-top: 45px;
+    }
+    .top__hr{
+      width: auto;
+      border: 2px #938e8c solid;
+      margin-top: 0px;
+    }
+    .space1{
+      height: 25px;
+    }
+    /*shadow-img设置*/
+    .main__img {
+      width: 641px;
+      height: 301px;
+      position: relative;
+
+    }
+    .main__img img{
+      position: absolute;
+      float: left;
+      margin-left: 0;
+      z-index: 0;
+    }
+    .shadow__left{
+      width: 191px;
+      height: 301px;
+      background: rgba(49,111,77,0.60);
+      position:absolute;
+      z-index: 1;
+    }
+    .shadow__right{
+      width: 191px;
+      height: 301px;
+      background:rgba(235,153,153,0.60);
+      float: right;
+      z-index: 1;
+      position: relative;
+    }
+    /*word-block样式设置*/
+    .words__block{
+      float: right;
+      width: 203px;
+      height: 301px;
+      position: relative;
+      overflow: hidden;
+    }
+    .words__block hr{
+      width: 203px;
+      border:2px #cc8091 solid;
+      margin-top: 0px;
+      position: absolute;
+    }
+    .title__form{
+      position:absolute;
+      border-bottom: 2px solid grey;
+      float: left;
+      margin-top: 0px;
+    }
+    .title__form2{
+      position:absolute;
+      border-bottom: 2px solid grey;
+      float: left;
+      margin-top: 30px;
+    }
+    .title__p1{
+      font-size: 24px;
+      color: #000000;
+      font-family: "Microsoft YaHei";
+    }
+    .title__p2{
+      font-size: 18px;
+      color: #000000;
+    }
+    .smallword{
+      height: 10px;
+      font-size: 12px;
+      color: #676767;
+      font-family: 楷体;
+      margin-top: 70px;
+    }
+    .number700{
+      position: absolute;
+      font-size: 116px;
+      color: #75b86b;
+      font-family: "Microsoft YaHei";
+      font-style: italic;
+      margin-left: -18px;
+      margin-top: 40px;      
+    }
+
+    .number3{
+      position: absolute;
+      margin-top: 163px;
+      font-size: 55px;
+      color: #cc8091;
+      font-family: "Microsoft YaHei";
+    }
+    .word__css{
+      position: absolute;
+      margin-top: 183px;
+      margin-left: 85px;
+      font-size: 21px;
+      color: #cc8091;
+      font-family: "Microsoft YaHei";
+
+    }
+    .smallword2{
+      position: absolute;
+      font-size: 12px;
+      color: #cc8091;
+      font-family: "Microsoft YaHei";
+      margin-left: 85px;
+      margin-top: 205px;
+    }
+    /*article样式设置*/
+    .aritcle{
+      width: 641px;
+      height: 200px;
+      margin-top:30px;
+      margin-bottom: 10px;
+    }
+    .article__left,.article__mid{
+      width: 230px;
+      height: 200px;
+      float: left;
+      margin-right: 20px;
+    }
+    .article__right{
+      width: 140px;
+      height: 150px;
+      float: left;
+    }
+    .article__title1{
+      font-size: 16px; 
+      color:#418c59;
+      font-family: "Microsoft YaHei";
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .article__title2{
+      font-size: 16px;
+      color:#d2994f;
+      font-family: "Microsoft YaHei";
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .article__title3{
+      font-size: 16px;
+      color:#cc7680;
+      font-family: "Microsoft YaHei";
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    .article__p1{
+      font-size: 12px;
+      color:#767777;
+      font-family: ;
+      line-height: 16px;
+    }
+    .article__p2{
+      font-size: 12px;
+      color:#231815;
+      font-family: "Microsoft YaHei";
+      line-height: 22px;
+      opacity: 70%;
+      color: rgba(35,24,21,0.7);
+    }
+    .article__p3{
+      font-size: 12px;
+      color:#cd4a48;
+      font-family: "Microsoft YaHei";
+      line-height: 16px;
+      color:rgba(35,24,21,0.7);
+      font-style: italic;
+    }
+    /*bottom-block样式设置*/
+    .bottom__l{
+      height: 690px;
+      width: 430px;
+      position:relative;
+      font: left;
+    }
+    .bottom__r{
+      width: 458px;
+      height: 690px;
+      float: right;
+    }
+    .y__style{
+      font-size: 72px;
+      color: #f5e327;
+      font-family:黑体;
+      font-style: italic;
+      font-weight: bold;
+    }
+    .b__style1{
+      font-size: 42px;
+      color: #11456b;
+      font-family:黑体;
+      font-weight: bold;
+      margin-left: 10px;
+      line-height: 16px;
+    }
+    .b__style2{
+      font-size: 33px;
+      color: #11456b;
+      font-family:黑体;
+      font-weight: bold;
+    }
+    .bottom__hr {
+      width: 425px;
+      border: 2px solid #11456b;
+    }
+    .space2{
+      height: 20px;
+    }
+    .word__block{
+      width: 450px;
+      margin-top:20px;
+      padding-top: 20px;
+    }
+    .qian__style{
+      font-size: 70px;
+      color: #f5e327;
+      font-family: "Microsoft YaHei";
+      float: left;
+      margin-right: 10px;
+      margin-top: -7px;
+    }
+    .bottom__word{
+      font-size: 12px;
+      color: #767777;
+      font-family: 宋体;
+      line-height: 20px;
+    }
+    .bottom__img {
+      background: url(../img/picture_pc3.jpg)no-repeat;
+      width: 165px;
+      height: 288px;
+      display: block;
+      float: right;
+      margin-right: 10px;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+    .r__img{
+      margin-top: 7px;
+      width: 458px;
+      height: 275px;
+    }
+    .r__img img{
+      position: absolute;
+    }
+    .grey__block{
+      width: 458px;
+      height: 61px;
+      background-color: rgba(130,130,130,0.7);
+      position: absolute;
+      margin-top: 220px;
+    }
+    .r__img p{
+      position: absolute;
+      font-size: 26px;
+      color: #ffffff;
+      font-family: "Microsoft YaHei";
+      margin-left: 55px;
+      margin-top: 15px;
+    }
+    .r__img__p{
+      font-size: 12px;
+      color: #72b16a;
+      font-family: "Microsoft YaHei";
+      margin-left: 10px;
+      font-style: italic;
+      letter-spacing: 140%;
+    }
+    .line1{
+      height:44px;
+      width: #72b16a;
+      color: red;
+      float: left;
+      position: absolute;
+      margin-top: 10px;
+      margin-left: 40px;
+    }
+    .bottom__r__word{
+      width: 459px;
+      height: 318px;
+      background-color: rgba(238,238,214,1.00);
+      margin-top: 30px;    
+    }
+    .bottom__r__word li{
+      list-style-type: none;
+      margin-left: 20px;
+      font-size: 16px;
+      color: #5a5b5b;
+      font-family: STSong;
+      line-height: 35px;   
+    }
+    .triangle_down {
+      width: 0;
+      height: 0;
+      border-width: 0 5px 8px;
+      border-style: solid;
+      border-color: transparent transparent rgba(37,74,108,1.00);
+      position: absolute;
+      margin-top: 14px;
+      line-height: 45px;
+    }
+    .qianduan{
+      font-size: 12px;
+      color: #5a5b5b;
+      font-style: italic;
+      font-family: STSong;
+      line-height: 20px;
+      text-align: right;
+    }
+    .red__block{
+      position: relative;
+      margin-top: 60px;
+      background-color: rgba(213,93,92,1.00);
+      width: 260px;
+      height: 160px;
+    }
+    .zero{
+      position: absolute;
+      margin-left: 10px;
+      font-size: 110px;
+      color: #ffffff;
+      font-family: "Microsoft YaHei";
+    }
+    .line4{
+      position: absolute;
+      width: 2px;
+      height: 86px;
+      background-color: #ffffff;
+      margin-left: 75px;
+      margin-top: 30px;
+      float: left;
+    }
+    .word{
+      position: absolute;
+      color: #ffffff;
+      font-size: 21px;
+      margin-top: 35px;
+      margin-left: 85px;
+      font-family: "SimHei";
+      line-height: 24px;
+      font-style: italic;
+    }
+    .word__sm{
+      position: absolute;
+      font-size: 12px;
+      font-family: "SimHei";
+      line-height: 16px;
+      color: #ffffff;
+      margin-top: 80px;
+      margin-left: 85px;
+    }
+    .red__blockr{
+      float: right;
+      font-family: 
+      color:#413E3E;
+      height: 160px;
+      width: 180px;
+      margin-top: 69px;
+      font-style: italic;
+      position: relative;
+    }
+    .double1{
+      position: absolute;
+      font-size: 110px;
+      color: #D55D5C;
+      font-family:  'Heiti';
+      margin-top: -18px;
+      margin-left:-48px;
+    }
+    .double2{
+      position: absolute;
+      font-size: 110px;
+      color: #D55D5C;
+      font-family:  'Heiti';
+      margin-top: -30px;
+      margin-left:-60px;
+    }
+    .hr3{
+      width: 892px;
+      height: 1px;
+      color: #938e8c;
+    }
+    .footer{
+      float: right;
+    }
+    .footer p{
+      font-size: 12px;
+      color: #D55D5C;
+      font-family:黑体;
+    }
+    
+
+    </style>
+    </head>
+
+    <body>
+          <div class="contaier">
+              <div class="clearflow">
+                 <div class="top__logo"> 
+                       <p>ife.baidu.com</p>
+                 </div>           
+                       <p class="top__time">2016.03</p>                      
+              </div>  
+              <hr class="top__hr">
+              <div class="space1"></div>
+              <div class="words__block">
+                <hr>
+                <div class="title__form">
+                   <p class="title__p1">A<span class="title__p2">BOUT</span></p>
+                </div>
+                <div class="title__form2">
+                   <p class="title__p1">T<span class="title__p2">ECHNOLOGE</span></p>
+                </div>
+                <div class="smallword">
+                   <p>About Techonology about Technology about Technology</p>
+                </div>
+                <div class="number700">
+                   <p>700</p>
+                </div>
+                <div class="number3">
+                   <p>3.2</p>
+                </div>
+                <div class="word__css">
+                   <p>CSS</p>
+                </div>
+                <div class="smallword2">
+                   <p>csscsscsscsscsscss</p>
+                </div>
+              </div>                                     
+              <div class="main__img clearflow">
+                <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg" width="641px" height="301px">
+                <div class="shadow__right"></div>
+                <div class="shadow__left"></div>
+              </div>
+              <div class="aritcle clearflow">
+                <div class="article__left">
+                  <div>
+                      <p class="article__title1">What</p>
+                      <p class="article__p1">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端</p>
+                  </div>
+                </div>
+                <div class="article__mid">
+                  <div>
+                      <p class="article__title2">When</p>
+                      <p class="article__p1">前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端</p>
+                  </div>
+                </div>
+                <div class="article__right">
+                      <p class="article__title3">How</p>
+                      <p class="article__p2">前端前端前端前端<br>
+                        前端前端前端前端前端前<br>
+                        端前端前端前端</p>
+                      <p class="article__p2">
+                      What----------<span class="article__p3">40%</span></br>
+                      What----------<span class="article__p3">30%</span></br>
+                      What----------<span class="article__p3">30%</span></br>
+                      </p>
+                </div>
+              </div>           
+                  <div class="bottom__r">
+                      <div class="r__img">
+                         <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg" class="r__img">
+                         <div class="grey__block">
+                           <div class="line1"></div>
+                           <p>前端技术<span class="r__img__p">前端技术前端计术</span></p>
+                         </div>
+                      </div>   
+                         <div class="bottom__r__word clearflow">
+                           <ul>
+                               <span class="triangle_down"></span>
+                               <li>前端前端前端前端前端前端......................................
+                               <span class="qianduan">前端</span>
+                               </li>
+                               <span class="triangle_down"></span>
+                               <li>前端前端前端前端...................................................
+                               <span class="qianduan">前端前</span>
+                               </li>
+                               <span class="triangle_down"></span>
+                               <li>前端前端前端前端前端前端前端.............................
+                               <span class="qianduan">前端</span>
+                               </li>
+                           </ul> 
+                           <div class="red__blockr">
+                               <span class="double2">“</span>
+                                <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    world hello world hello world hello world hello world hello world hello world hello world hello world hello world 
+                                    &nbsp; <span class="double1">”</span>
+                                </p>
+
+                           </div>
+                           <div class="red__block">
+                               <p class="zero">0</p>
+                               <span class="line4"></span>
+                               <span class="word"> ONE TWO<br>
+                                   THREE FOUR FIVE
+                               </span>
+                               <span class="word__sm"> hello world hello world<br>
+                                   hello world
+                               </span>                               
+                           </div>
+
+                         </div>
+                  </div>                
+                <div class="bottom__l">
+                      <p><span class="y__style">THE</span><span class="b__style1"> TECHNOLOGE<br>OF FRONT</span></p>
+                      <P class="b__style2">前端技术领域</P>
+                      <hr class="bottom__hr">
+                      <div class="space2"></div>
+                      <div class=" word__blook clearflow">
+
+                      <span class="qian__style">前</span><span class="bottom__word">端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端
+                      <em class="bottom__img"></em>
+                      前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端。前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端。<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端端前端前端前端端前端前端前端<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      前端前端前前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前端前端前端前端前端前端前端前端前端前端前端前端前端端前端前</span>
+                      </div>
+                </div> 
+                <hr class="hr3"> 
+                <div class="footer"> 
+                       <p>ife.baidu.com</p>
+                </div>           
+        </div>
+                                      
+    </body>
+    </html>

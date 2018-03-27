@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8">
+      <title>jsfive</title>
+      <style type="text/css">
+              *{
+	              margin:0;
+	              padding:0;
+	              font-size:14px;
+	              font-family:"Microsoft YaHei";
+	              list-style:none;
+	              color:#000;
+               }
+               
+               body{
+	                   font-size:12px;
+                       font-family:"Microsoft YaHei";
+	                   background-color:#fff;
+	                   overflow-x:hidden;
+                }
+                /*数字部分*/
+                .content{
+                	position: absolute;
+                	top: 0;
+                	left: 50%;
+                	transform: translateX(-50%);
+                	width: 200%;
+                	height: auto;
+                }
+                ul.content_ul{
+                	position: absolute;
+                	top: 20px;
+                	left: 50%;
+                	transform: translateX(-50%);
+                	width: auto;
+                	height: 135px;
+                	text-align: center;
+
+                }
+                li.content_li{
+                	display: inline-block;
+                	position: relative;
+                	float: left;
+                	font-size:15px;
+	                font-weight:700;
+	                line-height:300px;
+	                text-align:center;
+	                color:#434A54;
+	                background-color:#434A54;
+	                border:1px solid #1abc9c;
+	                margin-top:35px;
+	                margin-right:5px;
+	                width:20px;
+	                height:100%;
+	                transition:all 0.5s;/*动画属性：全部属性、延迟*/
+	                cursor:pointer;/*光标*/
+                }
+                li.content_li:hover{
+	                transform:scale(1.2);
+                }
+                span.content_list_num{
+                	position: absolute;
+                	bottom:0;
+	                left:0;
+	                width:100%;
+	                height:0;
+	                background-color:#1abc9c;
+	                transition:all 0.8s;
+	                z-index:1;
+                }
+                .input{
+	                display:block;
+	                position:absolute;
+	                top:450px;
+	                left:50%;
+	                transform:translateX(-50%);
+	                width:50%;
+	                height:50px;
+	                background-color:#434A54;
+	                border-radius:5px;
+                }
+                .input:hover{
+	                animation:input_hover 0.9s forwards;
+	                animation-iteration-count: infinite;
+	                animation-direction:alternate;
+	
+                }
+                .input:hover span.line_left{
+	                width:200px;
+	                transform:scale(0.5);
+                }
+                .input:hover span.line_right{
+	                width:200px;
+	                transform:scale(0.5);
+                }
+                @keyframes input_hover{
+	                0{box-shadow:0px 0px 00px #1abc9c;}
+	                100%{box-shadow:0px 0px 15px #1abc9c;}
+                }
+                .l_line,.r_line{
+	                display:block;
+	                position:absolute;
+	                top:-42px;
+	                left:50%;
+	                width:235px;
+	                height:20px;
+                }
+                span.line_left,span.line_right{
+	                display:block;
+	                position:absolute;
+	                width:15px;
+	                height:15px;
+	                background-color:#434A54;
+	                border-radius:10px;
+	                transition:all 1s;
+                }
+                .l_line{
+	                transform:translateX(-50%);
+                }
+                span.line_left{
+	                right:220px;
+	                transform:rotateZ(180deg);
+                }
+                .r_line{
+	                transform:translateX(-50%);
+                }
+                span.line_right{
+	                left:220px;
+	                transform:rotateZ(-180deg);
+                }
+                #prompt{
+	                position:absolute;
+	                bottom:-110%;
+	                left:50%;
+	                transform:translateX(-45%);
+	                padding：0 20px；
+	                height:50px;
+	                font-size:20px;
+	                font-weight:700;
+	                line-height:50px;
+	                text-align:center;
+	                color:#434A54;
+                }
+                h3.input_title{
+	                position:absolute;
+	                top:-60px;
+	                left:50%;
+	                transform:translateX(-50%);
+	                font-size:25px;
+	                font-weight:700;
+	                line-height:50px;
+	                color:#434A54;
+                }
+                #input_add{
+	                display:inline-block;
+	                position:absolute;
+	                top:5px;
+	                left:50%;
+	                transform:translateX(-50%);
+	                width:98%;
+	                height:40px;
+	                font-size:25px;
+	                line-height:40px;
+	                background-color:#fff;
+	                border:none;
+	                border-radius:3px;
+	                outline:none;
+                }
+
+                /*指令选择部分*/
+                ul.control{
+	                position:absolute;
+	                top:570px;
+	                left:50%;
+	                width:80%;
+	                height:50px;
+	                transform:translateX(-50%);
+	                -webkit-transform:translateX(-50%);
+	                -o-transform:translateX(-50%);
+                }
+                li.control_list{
+	                float:left;
+	                margin:0 auto;
+	                margin-right:calc(4% / 6);
+	                width:16%;
+	                height:50px;
+	                font-size:25px;
+	                font-weight:700;
+	                line-height:50px;
+	                text-align:center;
+	                color:#fff;
+	                background-color:#434A54;
+	                border-radius:5px;
+	                transition:all 0.5s;
+	                cursor:pointer;
+                }
+                li.control_list:last-child{
+	                margin-right:0;
+                }
+                li.control_list:hover,li.content_list:hover{
+	                box-shadow:5px 5px 10px #434A54;
+                }
+                .button_clickchange{
+	                animation:button_click 0.4s forwards;
+	                animation-direction:alternate;
+                }
+                @keyframes button_click{
+	                0% {transform:scale(1);}
+	                50% {transform:scale(0.9);}
+	                75% {transform:scale(1.1);}
+	                100% {transform:scale(1);}
+                }
+
+      </style>      
+</head>
+<body>
+		<!--数字输入部分-->
+		<div class="content">
+			<ul class="content_ul">
+				<li class="content_li">
+					90<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					52<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					53<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					24<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					85<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					77<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					58<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					43<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					28<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					89<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					99<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					16<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					56<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					33<span class="content_list_num"></span>
+				</li>
+				<li class="content_li">
+					39<span class="content_list_num"></span>
+				</li>			
+			</ul>
+		</div>
+		<!--数字输入部分-->
+		<div class="input">
+			<div class="l_line">
+				<span class="line_left"></span>
+			</div>
+			<div class="r_line">
+				<span class="line_right"></span>
+			</div>			
+			<h3 class="input_title">请开始你的表演</h3>
+			<input type="text" name="input_add" id="input_add" placeholder="输入范围10-100的数字，队列元素最多60个" /><span id="prompt">请输入10-100之间的数字！</span>
+		</div>
+		<!--指令选择部分-->
+		<ul class="control">			
+			<li class="control_list">左侧入</li>
+			<li class="control_list">右侧入</li>
+			<li class="control_list">正序排序</li>
+			<li class="control_list">逆序排序</li>
+			<li class="control_list">左侧出</li>
+			<li class="control_list">右侧出</li>
+		</ul>
+		<script type="text/javascript">
+		    window.onload = function(){
+		    	var ul_li = document.getElementsByClassName('content_ul')[0];
+		    	var li_li = document.getElementsByClassName('content_li');
+		    	var content_li_length = li_li.length;
+		    	var input_value = document.getElementById('input_add');
+		    	var leftIn = document.getElementsByClassName('control_list')[0];
+		    	var rightIn = document.getElementsByClassName('control_list')[1];
+		    	var li_sort_l = document.getElementsByClassName('control_list')[2];
+		    	var li_sort_r = document.getElementsByClassName('control_list')[3];
+		    	var leftOut = document.getElementsByClassName('control_list')[4];
+		    	var rightOut = document.getElementsByClassName('control_list')[5];
+		    	var span_content = document.getElementById('prompt');
+		    	input_value.addEventListener("input", myFunction);
+			    function myFunction (event) {
+				  if(event.target.value >= 10&&event.target.value <= 100){
+					   span_content.innerHTML = "验证通过！";
+				  }else{
+					   span_content.innerHTML = "请输入10-100之间的数字！";
+				  }
+			    }		
+
+
+		    //左侧入
+		    leftIn.onclick = function(){
+		    	var input_content = Number(input_value.value);
+		    	if (input_content != '' && typeof(input_content) =='number' && !isNaN(input_content)) {
+		    		if (input_content >= 10 && input_content <= 100) {
+		    			if (document.getElementsByClassName('content_li').length<=60){
+		    				var new_item = document.createElement('li');
+		    				new_item.className = 'content_li';
+		    				new_item.innerHTML = input_content + "<span class='content_list_num'></span>";
+		    				ul_li.insertBefore(new_item,ul_li.childNodes[0]);
+		    				ul_li.childNodes[0].children[0].style.height = input_content+'%';
+		    			}
+		    			else{
+		    				alert('最多60个，不能再多了！');
+		    				input_value.value = '';
+		    			}
+		    		}
+		    		else{
+		    			alert('请输入10-100之间的数字！');
+		    			input_value.value = '';
+		    		}
+		    	}
+		    	else if (input_content=='') {
+		    		alert('请输入数字！！');
+		    	}
+		    	else if (isNaN(input_content)) {
+		    		alert('请确认输入的是数字！！');
+		    		input_value.value='';
+		    	}
+
+		    }
+		    //右侧入
+		    rightIn.onclick = function(){
+		    	var input_content = Number(input_value.value);
+		    	if (input_content != '' && typeof(input_content) =='number' && !isNaN(input_content)) {
+		    		if (input_content >= 10 && input_content <= 100) {
+		    			if (document.getElementsByClassName('content_li').length<=60){		    				
+		    				ul_li.innerHTML += "<li class='content_li'>" +input_content + "<span class='content_list_num'></span>";
+		    				ul_li.lastChild.lastChild.style.height = input_content+'%';
+		    			}
+		    			else{
+		    				alert('最多60个，不能再多了！');
+		    				input_value.value = '';
+		    			}
+		    		}
+		    		else{
+		    			alert('请输入10-100之间的数字！');
+		    			input_value.value = '';
+		    		}
+		    	}
+		    	else if (input_content=='') {
+		    		alert('请输入数字！！');
+		    	}
+		    	else if (isNaN(input_content)) {
+		    		alert('请确认输入的是数字！！');
+		    		input_value.value='';
+		    	}
+
+		    }
+		    //左侧出
+		    leftOut.onclick = function(){
+		    	alert(ul_li.children[0].innerText);
+		    	ul_li.removeChild(ul_li.children[0]);
+		        
+		    }
+
+		    //右侧出
+		    rightOut.onclick=function(){
+		    	alert(ul_li.children[li_li.length-1].innerText);
+		    	ul_li.removeChild(ul_li.children[li_li.length-1]);
+		    }
+		    //循环赋予初始列表项显示高度比例
+		    for(let i = 0;i < content_li_length;i++){
+				ul_li.children[i].children[0].style.height = ul_li.children[i].innerText+ "%";
+			}
+
+
+		    //点击指定元素则被点击元素被删除（运用事件委托法）
+		    ul_li.onclick = function(ev){
+		    	var ev = ev ||window.event;//兼容
+		    	var target = ev.target || ev.srcElement;
+		    	if (target.nodeName.toLowerCase()=='li') {
+		    		target.parentNode.removeChild(target);
+		    	}
+		    	else if(target.nodeName.toLowerCase()=='span'){
+		    		target.parentNode.parentNode.removeChild(target.parentNode);
+		    	}
+		    }
+		    //点击正序排序
+		    li_sort_l.onclick = function(){
+		    	var li_libefore_length = li_li.length;
+		    	var li_arr = new Array();
+		    	for (var i = 0; i < li_libefore_length; i++) {
+		    		    var x = ul_li.children[i].innerText;
+		    		    li_arr.push(x);
+		    	}
+		    	var li_arr_sorted = insert_sort_l(li_arr);
+		    	for (var i = 0; i < li_libefore_length; i++) {
+		    		ul_li.children[i].innerText = li_arr_sorted[i];
+		    		ul_li.children[i].innerHTML += "<span class='content_list_num'></span>";
+		    		//数值高度变化可视化	
+                    setTimeout(
+						ul_li.children[i].children[0].style.height = li_arr_sorted[i] + "%"
+					,100);					
+		    	}
+		    }
+		    //点击逆序排序
+		    li_sort_r.onclick = function(){
+		    	var li_libefore_length = li_li.length;
+		    	var li_arr = new Array();
+		    	for (var i = 0; i < li_libefore_length; i++) {
+		    		    var x = ul_li.children[i].innerText;
+		    		    li_arr.push(x);
+		    	}
+		    	var li_arr_sorted = insert_sort_r(li_arr);
+		    	for (var i = 0; i < li_libefore_length; i++) {
+		    		ul_li.children[i].innerText = li_arr_sorted[i];
+		    		ul_li.children[i].innerHTML += "<span class='content_list_num'></span>";
+		    		//数值高度变化可视化	
+                    setTimeout((function(){
+						ul_li.children[i].children[0].style.height = li_arr_sorted[i] + "%";})()                   
+					,100);					
+		    	}
+		    }
+		    //正序函数
+		    insert_sort_l = function (arr) {
+		    	if(arr.length<=1){
+		    		return arr;
+		    	}
+		    	for(var i=0;i<arr.length;i++){
+		    		for(var j=i-1;j>=0;j--){
+		    			if(arr[j+1]<arr[j]){
+		    				var temp = arr[j+1];
+		    				arr[j+1]=arr[j];
+		    				arr[j]=temp;
+		    			}
+
+		    		}
+
+		    	}
+		    return arr;
+		    }
+		    
+		    
+		    //逆序函数
+		    insert_sort_r = function(arr){
+		    	if(arr.length<=1){
+		    		return arr;
+		    	}
+		    	for(var i=0;i<arr.length;i++){
+		    		for(var j=i-1;j>=0;j--){
+		    			if(arr[j+1]>arr[j]){
+		    				var temp = arr[j];
+		    				arr[j]=arr[j+1];
+		    				arr[j+1]=temp;
+		    			}
+
+		    		}
+
+		    	}
+		    return arr;
+		    }
+		}
+
+
+
+		</script>
+</body>
+</html>

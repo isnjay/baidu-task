@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+     /*消除全局的默认设置*/
+    * {
+		  margin: 0;
+		  padding: 0;
+    }
+   
+    /*头部样式*/
+    header {
+
+	    background: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    nav {
+
+	    float: right;
+	    margin-top: 15px;
+	    margin-right: 10px;
+    }
+    nav a {
+
+	    font-size: 90%;
+	    text-decoration: none;
+    }
+
+    nav a:link {
+
+	    color:white;
+	
+    }
+
+    nav a:visited {
+
+	    color:white;
+    }
+
+    nav a:hover {
+	    color:#d3d3d3;
+    }
+    nav ul {	
+	    float: right;
+	    list-style-type: disc;
+	}
+
+    nav ul li {
+   
+      margin:10px;
+      display: inline;
+      float: left;
+    }
+
+    ul {
+	    list-style-type: none;
+    } 
+    /*文章的样式*/
+    .article{
+      background:white;
+      margin-bottom: 20px;
+      padding: 20px;
+      margin-right: 0px;
+    }
+
+    .article h2{
+      line-height: 2em;
+    }
+    .article h3{
+      color: gray;
+      line-height: 2em;
+    }
+    p.author{
+      color: gray;
+      font-size: 0.8em;
+      line-height: 3em;
+    }
+    p.cont{
+      text-indent:2em;/*缩进*/
+      line-height:2em;/*行高*/
+      letter-spacing:1px;/*字间距*/
+    }
+
+    .article ul{
+      list-style: none;
+      margin-left: 20px;
+    }
+    .article ul li{
+      margin: 5px 0px;
+    }
+
+    /*层级main的样式*/
+    .main{
+       /*position: absolute;*/
+      width: 100%;
+      overflow: auto;
+      padding: 20px;
+      position: relative;
+      box-sizing:border-box;
+      background: gainsboro;
+    }
+    .content{
+      margin-right: 370px;
+      height: 100%;
+      overflow: auto;
+    }
+    .solid-border{
+      border-style: solid;
+      border-width: 1px 3px 3px 1px;/*阴影立体效果*/
+      border-color:darkgray;
+    }
+
+
+     /*板块3:图片组*/
+     .pictures{
+      /*background: yellow;*/
+      display: inline-block;
+      padding: 10px;
+    }
+     .picture{
+      float:left;
+      border: 1px lightgray solid;
+      width: 100px;
+      margin: 0 20px 20px 0;
+      padding:10px;
+      text-align: center;
+    }
+
+    .picture img{
+      width: 100px;
+      height: 80px;
+      margin-top: 10px;
+      display: block;/*消除img标签与div层之间的空隙*/
+    }
+    ol>li{
+      margin-left: 50px;
+      font-weight: bold;
+    } 
+
+    /*板块4:表格; */
+    table {
+	    width: 99%;
+	    border:1px solid #a9a9a9;
+	    border-collapse: collapse;
+	    font-size: 95%;
+      text-align: left;
+    }
+
+    table th {
+
+	    background-color: black;
+	    color: white;
+	    text-align: left;
+    }
+
+    table td{
+      background: white;
+      padding: 5px;
+      border: 1px lightgrey solid;
+    }
+
+    table td.total {
+
+      background: lightgrey;
+      font-weight: bold;
+    }
+
+    /*板块5：侧栏*/
+    .right{
+      float: right;
+      background:white;
+      margin-left: 20px;
+      padding: 10px 20px;
+      width: 350px;
+      right: 20px;
+    }
+    .prompt {
+      display: inline-block;
+      width: 30%;
+      padding-right: 3px;
+      text-align: right;
+      font-size: 0.8em;
+      vertical-align: top;/*顶部对齐*/
+    }
+    input{
+      margin-left: 10px;
+      padding: 3px;
+      font-size: 0.8em;
+    }
+    .line{
+      line-height: 2em;  
+    }
+    .hint{
+      display: inline-block;
+      color: gray;
+      margin-left: 10px;
+      font-size: 0.8em;
+      padding-bottom: 1.5em;
+    }
+    textarea {
+
+      font-size: 1.2em;
+      font-weight: bold;
+      width: 60%;
+      margin-left: 10px;
+      padding: 0px 3px;
+    }
+    .submitDiv{
+      text-align: center;
+    }    
+   
+    #subt {
+	    background: royalblue;
+      color: white;
+      width: 95%;
+      height: 40px;
+      margin:20px 0px;
+      border-radius: 10px;
+      border: 2px gray solid;
+    }
+
+    /*页脚部分样式设置*/
+    footer {
+	    background-color: #696969;
+	    color:white;
+	    font-size: 80%;
+    }
+
+    #copyright {
+	    text-align: center;
+	    height: 60px;
+	    line-height: 60px;
+    }
+    img{
+      width:300px ;
+      height:200px;
+    }
+  
+</style>
+</head>
+<body>   
+               <header>
+                        <h1>信工</h1>
+
+                        <nav>
+                                <ul>
+                                    <li><a href="导航链接一">导航链接一</a></li>
+                                    <li><a href="导航链接二">导航链接二</a></li>
+                                    <li><a href="导航链接三">导航链接三</a></li>
+                                    <li><a href="导航链接四">导航链接四</a></li>
+                                </ul>
+                        </nav>
+
+                </header>
+                <div class="main">
+                     <div class="right">
+                        <div class="solid-border">
+                
+                        <h3>这里以后是一个侧栏，这是侧栏的标题</h3>
+               
+                           <form>
+                               <div class="line">
+      
+                                      <label class="prompt">请输入邮箱地址：</label>
+                                      <input type="text" name="请输入邮箱地址" value="这是一个文本框">
+
+                               </div>
+                               <div class="line">
+                                   
+                                       <span class="prompt"></span>
+                                       <label class="hint">邮箱地址请按要求格式输入</label>
+                               </div>
+                                 
+                               <div class="line">
+                                       <label class="prompt">请输入密码：</label>
+                                       <input type="password" name="请输入密码" value="这是一个文本框">
+                               </div>
+                               <div class="line">
+
+                                       <label class="prompt">请重复输入密码：</label>
+                                       <input type="password" name="请重复输入密码" value="这是一个文本框">
+                               </div>
+                               <div class="line">
+                                 
+                                      <span class="prompt"></span>
+                                       <label class="hint">密码请为6-16位英文数字</label>
+                               </div>
+                               <div class="line">
+
+                                 
+                                       <label class="prompt">性别：</label>
+                                       <input type="radio" name="sex" value="男"><label>男</label>
+                                       <input type="radio" name="sex" value="女"><label>女</label>
+                               </div>
+
+                               <div class="line"> 
+                                       <label class="prompt">城市：</label>
+                                            <select>
+                                                    <option value="北京">北京</option>
+                                                    <option value="上海">上海</option>
+                                            </select>
+                               </div>
+                               <div class="line">     
+                                       <label class="prompt">爱好：</label>
+                                       <input type="checkbox" name="爱好" value="运动"><label>运动</label>
+                                       <input type="checkbox" name="爱好" value="艺术"><label>艺术</label>
+                                       <input type="checkbox" name="爱好" value="科学"><label>科学</label>
+                               </div>
+
+                               <div class="line"> 
+
+                                       <label  class="prompt">个人描述：</label>
+                                       <textarea></textarea>
+                               </div>
+                               <div class="submitDiv">
+                                      
+                                <input type="submit" value="确认提交" id="subt">
+                               </div>   
+                          </form>  
+                    </div>                          
+                </div>
+                <div class="content">
+                    <div class="article solid-border">
+               
+                       <h2>文章一级标题</h2>
+                       <h3>文章二级标题</h3>
+                       <p class="author">文章作者 文章发表时间</p>
+                       <p class="cont">这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，</br>
+                          这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，</br>
+                          这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://ife.baidu.com">这里有一个链接链接到</a>这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>
+                          这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，</p>
+                       <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg">
+                       <p class="cont">这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，
+                       <br>
+                          这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://ife.baidu.com" target="_blank">这里有个新链接点击后打开新窗口链接到</a>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落</p>
+                    </div>
+                  <div class="article solid-border">
+                         <h2>另一篇文章一级标题</h2>
+                         <h3>文章二级标题</h3>
+                         <p class="author">文章作者 文章发表时间</p>
+                         <p class="cont">这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，</br>
+                            这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，</br>
+                            这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://ife.baidu.com">这里有一个链接链接到</a>这是一个很长很长的段落，这是一个很长很长的段落，<b>这里有个粗体字</b>
+                            这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，</p>
+                         <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg">
+                         <ul type="disc">
+                           <li>列表项目一</li>
+                           <li>列表项目二</li>
+                           <li>列表项目三</li>
+                         </ul>
+                  </div>
+
+                  <div class="article solid-border">
+                         <h2>图片</h2>
+                         <div class="pictures">
+                            <div class="picture">
+                                         <p>好看的图片</p>
+                                         <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg" >
+                            </div>
+                            <div class="picture">
+                                          <p>好看的图片</p>
+                                          <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg" >
+                            </div>
+                            <div class="picture">
+                                          <p>好看的图片</p>
+                                          <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg" >
+                            </div>
+                            <div class="picture">
+                                          <p>好看的图片</p>
+                                          <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg" >
+                            </div>
+                            <div class="picture">
+                                          <p>好看的图片</p>
+                                          <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg" >
+                            </div>
+                            <div class="picture">
+                                          <p>好看的图片</p>
+                                          <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg">
+                            </div>
+                            <div class="picture">
+                                          <p>好看的图片</p>
+                                          <img src="C:\Users\DOG\Desktop\澄海信工\mmexport1492365364479.jpg">
+                            </div>
+                          </div>
+                    </div>
+
+                  <div class="article solid-border">
+                
+                       <h2>最后一篇文章一级标题</h2>
+                       <h3>文章二级标题</h3>
+                       <p class="author">文章作者 文章发表时间</p>
+                       <ol>
+                           <li>排名1</li>
+                           <li>排名2</li>
+                           <li>排名3</li>
+                       </ol>
+                       <p>下面是一个表格，给表格加了一个border="1"好让你看出是一个表格</p>
+                       <table border="1">
+                                                                                                                       
+                                            <tr>
+                                                <th>表头</th>
+                                                <th>表头</th>
+                                                <th>表头</th>
+                                            </tr>
+                                            <tr>
+                                                <td>表内容单元格</td>
+                                                <td>表内容单元格</td>
+                                                <td>操作</td>
+                                            </tr>
+                                            <tr>
+                                                <td>表内容单元格</td>
+                                                <td>表内容单元格</td>
+                                                <td>操作</td>
+                                            </tr>
+                                            <tr>
+                                                <td>表内容单元格</td>
+                                                <td>表内容单元格</td>
+                                                <td>操作</td>
+                                            </tr>
+                                            <tr>
+                                                <td>表内容单元格</td>
+                                                <td>表内容单元格</td>
+                                                <td>操作</td>
+                                            </tr>
+                                            <tr>
+                                            <td>总计</td>
+                                            <td colspan="2" text-align="center">1000</td>
+                                            </tr>
+                                    
+                        </table>
+                  </div>
+               
+                </div>
+
+            </div>
+        </div>
+                <footer>
+	                     <p id="copyright">版权所有&copy;</p>
+                </footer>
+</body>
+</html>
